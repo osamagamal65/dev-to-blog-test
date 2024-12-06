@@ -1,0 +1,25 @@
+.bg{
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  display: block;
+  z-index: 0;
+  height:  728px;
+  width: 100%;
+}
+.header{
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+}
+.main{
+  position: relative;
+}
+
+.page-content{
+  z-index: 100;
+  top: 420px;
+  position: absolute;
+}

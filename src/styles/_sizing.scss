@@ -1,0 +1,26 @@
+@mixin generate-width-classes($min, $max, $step, $unit) {
+  $i: $min;
+  @while $i <= $max {
+    .w-#{$i}-#{$unit} {
+      width: #{$i}#{$unit};
+    }
+    $i: $i + $step;
+  }
+}
+
+@mixin generate-height-classes($min, $max, $step, $unit) {
+  $i: $min;
+  @while $i <= $max {
+    .h-#{$i}-#{$unit} {
+      height: #{$i}#{$unit};
+    }
+    $i: $i + $step;
+  }
+}
+// Generate classes from 50px to 500px in steps of 50px
+
+@include generate-width-classes(2, 1080, 2, px);
+@include generate-height-classes(2, 1080, 2, px);
+
+@include generate-width-classes(1, 16, 1, rem);
+@include generate-height-classes(1, 16, 1, rem);

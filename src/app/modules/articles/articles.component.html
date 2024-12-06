@@ -1,0 +1,42 @@
+<div class="main p-2">
+  <img class="bg" alt="background-pattern" src="assets/imgs/bg-pattern.svg">
+  <div class="header h-438-px flex flex-col justify-center items-center">
+    <span class="tag">
+      Our blog
+    </span>
+
+    <h1 class="font-huge primary-color my-3">Resources and insights</h1>
+    <p class="font-medium text-heading-color">The latest industry news, interviews, technologies, and resources.</p>
+    <div class="searchInput">
+      <label style="display: none;">Search</label>
+      <input type="text" class="h-48-px w-320-px searchInput" placeholder="Search">
+    </div>
+  </div>
+  <div class="page-content">
+    @if(loading && articles.length == 0) {
+    <p class="pulse-animation">Loading.......</p>
+    }
+    @else if(!loading && articles.length ===0 ) {
+    <p class="pulse-animation">No data</p>
+    } @else {
+    <div class="flex flex-col items-center">
+      <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="loadNextPage()"
+        class="flex flex-row flex-wrap items-center justify-center">
+        @for(article of articles; track article.id) {
+        <app-article-card [article]="article"></app-article-card>
+        }
+      </div>
+      <button class=" w-150-px my-3 btn btn-primary">
+        <span class="icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.99984 4.16663V15.8333M9.99984 15.8333L15.8332 9.99996M9.99984 15.8333L4.1665 9.99996"
+              stroke="#6941C6" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+        </span>
+        Load more
+      </button>
+    </div>
+    }
+  </div>
+</div>

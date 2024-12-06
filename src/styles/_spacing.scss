@@ -1,0 +1,61 @@
+// Define spacing utilities
+$spacers: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 3rem
+);
+
+@each $key, $value in $spacers {
+  // Padding utilities
+  .p-#{$key} {
+    padding: $value !important;
+  }
+  .pt-#{$key} {
+    padding-top: $value !important;
+  }
+  .pr-#{$key} {
+    padding-right: $value !important;
+  }
+  .pb-#{$key} {
+    padding-bottom: $value !important;
+  }
+  .pl-#{$key} {
+    padding-left: $value !important;
+  }
+  .px-#{$key} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+  .py-#{$key} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+
+  // Margin utilities
+  .m-#{$key} {
+    margin: $value !important;
+  }
+  .mt-#{$key} {
+    margin-top: $value !important;
+  }
+  .mr-#{$key} {
+    margin-right: $value !important;
+  }
+  .mb-#{$key} {
+    margin-bottom: $value !important;
+  }
+  .ml-#{$key} {
+    margin-left: $value !important;
+  }
+  .mx-#{$key} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+  .my-#{$key} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+}

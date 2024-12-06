@@ -1,0 +1,30 @@
+input {
+  background-color: white;
+  border: 1px solid #D0D5DD;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+
+}
+
+.searchInput {
+  position: relative;
+
+  input {
+    padding-left: 56px;
+  }
+
+  &::before {
+    content: url('/assets/imgs/search-icon.svg');
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 16px;
+    bottom: 14px;
+    z-index: 10;
+  }
+}

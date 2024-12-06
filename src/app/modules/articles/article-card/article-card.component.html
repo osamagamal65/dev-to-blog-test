@@ -1,0 +1,32 @@
+<div class="card m-3 w-384-px h-530-px justify-between items-stretch">
+  <div class="card-body">
+    <img class="card-img" onerror="this.onerror=null;this.src='assets/imgs/placeholder.png'" [src]="article.cover_image" alt="article image"
+      [alt]="article.title || 'Article image'" />
+    <span class="card-tag my-3">
+      {{article.tags}}
+    </span>
+    <div class="flex justify-between">
+      <h2 class="card-title my-3">
+        {{article.title}}
+      </h2>
+      <span>
+        <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 21L17 11M17 11H7M17 11V21" stroke="#101828" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </span>
+    </div>
+  </div>
+
+
+  <div class="card-footer">
+    <div class="flex flex-row">
+      <img class="user-img mr-2" [src]="article.user.profile_image" alt="article image"
+        [alt]="article.title || 'Article image'" />
+      <div class="flex flex-col">
+        <span class="sm-text mb-1≈">{{article.user.name}}</span>
+        <span class="xs-text gray-text">{{article.published_at | date}}</span>
+      </div>
+    </div>
+  </div>
+</div>

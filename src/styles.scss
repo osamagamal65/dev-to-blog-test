@@ -1,1 +1,95 @@
-/* You can add global styles to this file, and also import other style files */
+// src/styles/main.scss
+
+@import 'styles/_variables';
+@import 'styles/_flex';
+@import 'styles/_card';
+@import 'styles/spacing';
+@import 'styles/_sizing';
+@import 'styles/buttons';
+@import 'styles/input';
+.clickable {
+  cursor: pointer;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+.sm-text {
+  font-size: $font-xSmall;
+}
+
+.xs-text {
+  font-size: $font-xSmall;
+}
+
+.gray-text {
+  color: $gray-color;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.tag {
+  height: 28px;
+  padding: 4px 12px 4px 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-heading-color;
+  background-color: #f2ecfa;
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+
+.text-heading-color {
+  color: $text-heading-color;
+}
+
+.text-sub-heading-color {
+  color: $text-sub-heading-color;
+}
+
+.background-color {
+  background-color: $background-color;
+}
+
+.gray-color {
+  color: $gray-color;
+}
+
+.font-xSmall {
+  font-size: $font-xSmall;
+}
+
+.font-small {
+  font-size: $font-small;
+}
+
+.font-medium {
+  font-size: $font-medium;
+}
+
+.font-large {
+  font-size: $font-large;
+}
+
+.font-huge {
+  font-size: $font-huge;
+}
+
+// Add more classes as needed based on your variables
+
+
