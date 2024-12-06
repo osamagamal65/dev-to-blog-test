@@ -32,7 +32,7 @@ export class ArticlesService {
   }
 
   getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(`${this.baseUrl}?${this.buildListingQuery}${this.paginationOptions.query.length ? '&q' : ''}`);
+    return this.http.get<Article[]>(`${this.baseUrl}?${this.buildListingQuery}${this.paginationOptions.query.length ? ('&query='+ this.paginationOptions.query) : ''}`);
   }
 
   getArticleById(articleId: string): Observable<Article> {

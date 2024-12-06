@@ -3,13 +3,13 @@ import { ArticlesService } from '../../services/articles.service';
 import { Article } from '../../interfaces/base-response.interface';
 import { ArticleCardComponent } from './article-card/article-card.component';
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-articles',
   standalone: true,
-  imports: [ArticleCardComponent, InfiniteScrollDirective],
+  imports: [ArticleCardComponent, InfiniteScrollDirective, FormsModule],
   providers: [ArticlesService],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss'
@@ -17,10 +17,10 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class ArticlesComponent implements OnInit {
   loading: boolean = false;
   articles: Article[] = [];
-
+  searchQuery: string = '';
   err?: any;
 
-  private searchSubject = new Subject<string>();
+  searchSubject = new BehaviorSubject<string>('');
 
   constructor(private service: ArticlesService) {
 
@@ -34,10 +34,17 @@ export class ArticlesComponent implements OnInit {
     ).subscribe(query => {
       if (query.length > 0) {
         this.service.query = query;
-        this.getArticles()
+        this.getArticles();
+        this.articles = [];
+
       } else {
+        this.articles = [];
         this.service.query = '';
+        if (this.articles.length === 0) {
+          this.getArticles();
+        }
       }
+
     });
   }
 

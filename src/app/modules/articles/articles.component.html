@@ -9,15 +9,18 @@
     <p class="font-medium text-heading-color">The latest industry news, interviews, technologies, and resources.</p>
     <div class="searchInput">
       <label style="display: none;">Search</label>
-      <input type="text" class="h-48-px w-320-px searchInput" placeholder="Search">
+      <input type="text" class="h-48-px w-320-px searchInput" placeholder="Search" [ngModel]="searchQuery" (ngModelChange)="searchSubject.next($event)">
     </div>
   </div>
-  <div class="page-content">
+  <div class="page-content flex justify-center">
+    @if(err) {
+      {{err}}
+    }
     @if(loading && articles.length == 0) {
-    <p class="pulse-animation">Loading.......</p>
+    <p class="pulse-animation flex justify-center items-center">{{searchSubject.value.length ? 'getting results' : 'Loading....... '}}</p>
     }
     @else if(!loading && articles.length ===0 ) {
-    <p class="pulse-animation">No data</p>
+    <p class="pulse-animation justify-center items-center">No data</p>
     } @else {
     <div class="flex flex-col items-center">
       <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="loadNextPage()"
